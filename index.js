@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
 require("dotenv").config();
+const mongoose = require("mongoose");
+
 const path = require("path");
 const express = require("express");
 const userController = require("./controller/userController");
@@ -37,7 +38,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'https://frontend-clms-using-mern.vercel.app', 
+  origin: 'http://localhost:3000', 
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
