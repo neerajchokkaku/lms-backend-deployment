@@ -37,11 +37,12 @@ if (!fs.existsSync(uploadsDir)) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+cors({
+  origin: ['http://localhost:3000', 'https://your-vercel-url.vercel.app'],
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
-}));
+});
+
 
 app.use("/userRoute", userController);
 app.use("/courseRoute", courseController);
