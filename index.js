@@ -37,12 +37,17 @@ if (!fs.existsSync(uploadsDir)) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-cors({
-  origin: ['http://localhost:3000', 'https://lms-frontend-deployment-kappa.vercel.app/'],
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
-});
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://lms-frontend-deployment-qzwojcs0r-neeraj-chokkakus-projects.vercel.app'
+];
 
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  
+}));
 
 app.use("/userRoute", userController);
 app.use("/courseRoute", courseController);
