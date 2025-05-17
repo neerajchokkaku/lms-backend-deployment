@@ -38,7 +38,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 cors({
-  origin: ['http://localhost:3000', 'https://your-vercel-url.vercel.app'],
+  origin: ['http://localhost:3000', 'https://lms-frontend-deployment-kappa.vercel.app/'],
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 });
