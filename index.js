@@ -38,10 +38,11 @@ if (!fs.existsSync(uploadsDir)) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
+
 app.use("/userRoute", userController);
 app.use("/courseRoute", courseController);
 app.use("/cartRoute", cartController);
