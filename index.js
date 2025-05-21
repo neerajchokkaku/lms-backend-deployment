@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://lms-frontend-deployment-qzwojcs0r-neeraj-chokkakus-projects.vercel.app'
+  'https://lms-frontend-otit-neeraj-chokkakus-projects.vercel.app', // Replace with your actual domain
 ];
 
 app.use(cors({
