@@ -19,7 +19,10 @@ paymentRoute.post("/create-checkout-session", async (req, res) => {
       return res.status(400).json({ error: "User ID is required" });
     }
 
+
+
     const session = await stripe.checkout.sessions.create({
+    
       payment_method_types: ["card"],
       line_items: cartItems.map((item) => ({
         price_data: {
@@ -32,6 +35,8 @@ paymentRoute.post("/create-checkout-session", async (req, res) => {
         },
         quantity: 1,
       })),
+      
+      
       mode: "payment",
       success_url: `${process.env.CLIENT_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.CLIENT_URL}/cart`,
